@@ -1,0 +1,17 @@
+name: Linter-Example
+
+on: push
+
+jobs:
+  lint:
+    name: Lint codebase example
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run super linter
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GTIHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
